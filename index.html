@@ -1,60 +1,40 @@
+<!DOCTYPE html>
 <html>
-    <head>
-     <title>Guess The Number</title>
-    </head>
+<head>
+</head>
+<body>
+	<script>
+        let num = Math.floor(Math.random() * 100) + 1;
+        let guess = prompt("guess a number between 1 and 100");
+        let gotIt = false; 
+        let numGuesses = 0;
 
-    <body>
-     <h1>Guess The Number</h1>
+        while(gotIt === false){
+            numGuesses++;
+            if(num == guess)
+            {
+                //alert("Got it!");
+                gotIt = true; //breaking out of the loop
+            }else{//keep trying the number is wrong!
+                if(num > guess){//higher!
+                    guess = prompt("higher");
 
 
-        <script>
-            let num = Math.floor(Math.random() * 11) + 1;
-            let gotIt = false;
-            let guess = prompt("Guess a number between 1 and 10");
-            let counter = 0;
-            let feedback = "";
-            let tries = "tries";
-            /*
-                to increment counter, you can do this:
-                counter++
-                or 
-                counter += 1 
-                or 
-                counter = counter + 1
-            */
+                }else{//lower!
+                    guess = prompt("lower");
 
-            while(gotIt == false){
-                counter++;
-                if(num == guess) {
-                    alert("You got it!");
-                    if(counter == 1){
-                        tries = "try"
-                    }
-                    feedback = `congratulations! The correct was ${num} and you guessed in ${counter} ${tries}!`;
-                    
-                    alert(feedback);
-                    gotIt = true;
-                }else if(guess > num){//higher
-                    guess = prompt("Try lower. Please guess again.");
-
-                }else if(guess < num){
-                    guess = prompt("Try higher. Please guess again.");
-        
-                }else{
-                    alert('You should not see this');
                 }
+
+                //guess = prompt("guess again!");
 
             }
 
+        }
 
-            alert(num);
-             
+        alert("Congratulations! You guessed " + num + " and it took you " + numGuesses + " guesses!");
+        //alert("Sorry!  You guessed " + guess + " and the number was " + num);
 
-            //alert("HI");
-        </script>
 
-    </body>
-
+	</script>
+</body>
 </html>
-
-
